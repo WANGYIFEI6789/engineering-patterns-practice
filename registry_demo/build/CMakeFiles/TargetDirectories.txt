@@ -1,3 +1,0 @@
-/root/Code/Project/registry_demo/build/CMakeFiles/registry_demo.dir
-/root/Code/Project/registry_demo/build/CMakeFiles/edit_cache.dir
-/root/Code/Project/registry_demo/build/CMakeFiles/rebuild_cache.dir

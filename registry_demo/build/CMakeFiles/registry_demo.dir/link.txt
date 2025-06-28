@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/registry_demo.dir/src/algorithm_components.cpp.o CMakeFiles/registry_demo.dir/src/main.cpp.o CMakeFiles/registry_demo.dir/src/sensor_components.cpp.o -o registry_demo 
