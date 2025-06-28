@@ -1,0 +1,12 @@
+{
+  "sensors": [
+    {"name": "lidar", "type": "robosense", "topic": "/lidar/points"},
+    {"name": "camera", "type": "hikvision", "topic": "/camera/image"},
+    {"name": "gnss", "type": "ublox", "topic": "/gnss/data"}
+  ],
+  "algorithms": [
+    {"name": "object_detector", "type": "yolox", "input": ["camera"]},
+    {"name": "localization", "type": "ekf", "input": ["gnss", "lidar"]},
+    {"name": "sensor_fusion", "type": "fusion_v2", "input": ["object_detector", "localization"]}
+  ]
+}
