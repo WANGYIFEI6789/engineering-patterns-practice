@@ -1,0 +1,26 @@
+# 工程思想
+## 注册表模式
+注册表模式是一种通过全局或统一的注册表来集中管理和动态查找（创建）各类对象或服务实例，从而实现模块解耦与灵活扩展的设计模式
+```bash
+# registry_demo目录下
+mkdir build && cd build
+cmake ..
+make
+./registry_demo
+```
+## 构建动态链接库
+构建动态链接库的目的是为了实现代码的复用和模块化，使多个程序可以共享同一份功能实现并便于后续独立升级或维护  
+静态库是在程序编译（链接）时合入到可执行文件的，动态库是程序运行到时由系统动态加载的
+```bash
+# stringlib_demp
+# 通过CMakeLists.txt 生成动态库 放在lib文件夹下
+mkdir build && cd build
+cmake ..
+make
+# 在test文件夹下进行测试
+cd ../test
+g++ test.cpp -I../include -L../lib -lstrutil -o test  #  -I 指定头文件查找目录 -L 指定库文件查找目录 -lxxx 会自动链接名为libxxx.so或libxxx.a的库
+# 设置LD_LIBRARY_PATH，动态库路径查找
+export LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH
+./test
+```
