@@ -36,3 +36,20 @@ make
 cd test/
 ./test_adaptor
 ```
+## MVP架构
+MVP = model + view + present  
+MVP架构在自动驾驶系统中能够很好地管理复杂的车辆状态、传感器数据和用户交互  
+model: 存储车辆状态、传感器数据  
+view: 展示数据给用户，接收用户输入，但不包含任何业务逻辑  
+present: 负责协调、控制和处理  
+```bash
+mkdir build && cd build
+cmake ..
+make -j4
+# 运行程序
+./autonomous_mvp
+# 交互式运行
+./autonomous_mvp --interactive
+# 测试用例
+make test    # ./test/test_mvp
+```
