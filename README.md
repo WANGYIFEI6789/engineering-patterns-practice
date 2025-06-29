@@ -24,3 +24,15 @@ g++ test.cpp -I../include -L../lib -lstrutil -o test  #  -I 指定头文件查�
 export LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH
 ./test
 ```
+## 适配器模式
+适配器模式的应用，非常适合自动驾驶系统的传感器集成场景。通过适配器模式，可以轻松集成各种不同接口的传感器，而无需修改现有的系统架构  
+简单来说就是引入一个新的包装器进行接口转换  
+```bash
+mkdir build && cd build
+cmake ..
+make
+./adaptor_demo
+# 测试代码
+cd test/
+./test_adaptor
+```
