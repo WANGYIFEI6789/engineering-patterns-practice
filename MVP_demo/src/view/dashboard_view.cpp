@@ -1,15 +1,15 @@
 #include "view/dashboard_view.hpp"
 #include <iostream>
-#include <sstream>
-#include <chrono>
+#include <sstream>   // 字符串流，用于处理用户输入
+#include <chrono>    
 #include <random>
 
 #ifdef _WIN32
     #include <windows.h>
     #include <conio.h>
 #else
-    #include <termios.h>
-    #include <unistd.h>
+    #include <termios.h>    // 用于终端输入处理
+    #include <unistd.h>     
 #endif
 
 namespace duan {
@@ -51,7 +51,7 @@ void ConsoleDashboardView::displayVehicleSpeed(double speed) {
 void ConsoleDashboardView::displaySteeringAngle(double angle) {
     std::lock_guard<std::mutex> lock(display_mutex_);
     if (display_detailed_) {
-        std::cout << "🎯 方向盘: " << std::fixed << std::setprecision(1) 
+        std::cout << "方向盘: " << std::fixed << std::setprecision(1) 
                   << angle << "°";
         
         if (std::abs(angle) > 30) {
@@ -143,7 +143,7 @@ void ConsoleDashboardView::displaySensorStatus(const SensorData& data) {
         
         // 显示部分激光雷达数据
         if (!data.lidar_distances.empty()) {
-            std::cout << "  🎯 前方距离: ";
+            std::cout << " 前方距离: ";
             for (size_t i = 170; i <= 190; i += 5) {  // 显示前方40度范围
                 if (i < data.lidar_distances.size()) {
                     std::cout << std::fixed << std::setprecision(1) 
@@ -365,7 +365,7 @@ void ConsoleDashboardView::processUserCommand(const std::string& command) {
 
 std::string ConsoleDashboardView::getColorCode(int priority) {
     #ifdef _WIN32
-        return "";  // Windows控制台颜色较复杂，暂时不实现
+        return "";     // Windows控制 台颜色较复杂，暂时不实现
     #else
         switch (priority) {
             case 0: return "\033[37m";   // 白色 - 信息
