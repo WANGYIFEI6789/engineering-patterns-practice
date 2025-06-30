@@ -12,7 +12,7 @@ make
 构建动态链接库的目的是为了实现代码的复用和模块化，使多个程序可以共享同一份功能实现并便于后续独立升级或维护  
 静态库是在程序编译（链接）时合入到可执行文件的，动态库是程序运行到时由系统动态加载的
 ```bash
-# stringlib_demp
+# stringlib_demo
 # 通过CMakeLists.txt 生成动态库 放在lib文件夹下
 mkdir build && cd build
 cmake ..

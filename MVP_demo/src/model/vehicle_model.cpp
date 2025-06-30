@@ -185,6 +185,15 @@ std::vector<std::string> VehicleModel::getSystemWarnings() const {
 void VehicleModel::notifyVehicleStateChanged() {
     auto it = observers_.begin();
     while (it != observers_.end()) {
+        /*
+        std::weak_ptr是一种不拥有对象所有权的智能指针
+        它可以避免循环引用的问题。当观察者被销毁时，weak_ptr会自动失效
+        这里使用lock()方法获取一个shared_ptr，如果观察者已经被销毁，
+        lock()会返回一个空的shared_ptr，这样就可以安全地跳过这个观察者
+        以避免访问已销毁的对象导致的未定义行为
+
+        lock 获取所有权
+        */
         if (auto observer = it->lock()) {
             observer->onVehicleStateChanged(current_state_);
             ++it;
