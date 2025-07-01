@@ -53,3 +53,14 @@ make -j4
 # 测试用例
 make test    # ./test/test_mvp
 ```
+## 日志系统
+这个日志系统轻量级、易用且功能完整，适合大多数C++项目使用  
+```bash
+mkdir build && cd build
+cmake ..
+make
+./logger_example
+./logger_test
+# 若需要使用我的日志系统
+make install
+```
