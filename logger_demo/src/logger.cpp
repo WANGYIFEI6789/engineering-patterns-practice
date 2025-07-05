@@ -115,3 +115,31 @@ namespace duan
         }
     }
 } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+log_level 是日志等级
+log_formatter 是日志格式化器
+logger 是日志记录器
+logger中有一个log_formatter成员变量，类型是std::unique_ptr<LogFormatter>
+log_formatter中有一个format方法，用于格式化日志消息
+log_formatter的format方法接受日志级别、消息、文件名、行号、函数名和时间戳作为参数
+
+logger的log方法调用log_formatter的format方法来格式化日志消息
+logger的log方法还会根据当前日志级别决定是否记录日志
+logger的log方法会将格式化后的日志消息输出到控制台和文件（如果启用文件输出）
+logger的log方法使用互斥锁来保护日志写入操作
+
+logger.log_formatter 调用log接口  log接口中通过log_formatter对象的format方法来格式化日志消息
+*/
