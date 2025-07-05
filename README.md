@@ -64,3 +64,11 @@ make
 # 若需要使用我的日志系统
 make install
 ```
+## C++新特性
+包含智能指针、锁、lambda表达式、模板、偏特化、全特化
+```bash
+mkdir build && cd build
+cmake ..
+make
+./bin/CppFeaturesDemo
+```
